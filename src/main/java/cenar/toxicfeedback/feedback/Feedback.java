@@ -19,18 +19,21 @@ public class Feedback {
     private String email;
     private String message;
     private String toxicResult;
-    public Feedback(Long id, String name, String email, String message, String toxicResult) {
+    private String date;
+    public Feedback(Long id, String name, String email, String message, String toxicResult, String date) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.message = message;
         this.toxicResult = toxicResult;
+        this.date = date;
     }
-    public Feedback(String name, String email, String message, String toxicResult) {
+    public Feedback(String name, String email, String message, String toxicResult, String date) {
         this.name = name;
         this.email = email;
         this.message = message;
         this.toxicResult = toxicResult;
+        this.date = date;
     }
 
     public Feedback() {
@@ -75,6 +78,13 @@ public class Feedback {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
 
