@@ -1,53 +1,51 @@
 package cenar.toxicfeedback.feedback;
 
+import com.mongodb.lang.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
-
-@Document("feedbacks")
+@Document(collection = "feedback")
 public class Feedback {
 
     @Id
-    private Long id;
+    private String id;
+
+    @NonNull
     private String name;
+
+    @NonNull
     private String email;
+    
+    @NonNull
     private String message;
-    private String toxicResult;
+    
+    @NonNull
     private String date;
-    public Feedback(Long id, String name, String email, String message, String toxicResult, String date) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.message = message;
-        this.toxicResult = toxicResult;
-        this.date = date;
-    }
-    public Feedback(String name, String email, String message, String toxicResult, String date) {
-        this.name = name;
-        this.email = email;
-        this.message = message;
-        this.toxicResult = toxicResult;
-        this.date = date;
-    }
+
+    @NonNull
+    private String result;
 
     public Feedback() {
+        name = null;
+        email = null;
+        message = null;
+        result = null;
+        date = null;
     }
 
-    public String getToxicResult() {
-        return toxicResult;
+    public Feedback(String name, String email, String message, String result, String date) {
+        this.name = name;
+        this.email = email;
+        this.message = message;
+        this.result = result;
+        this.date = date;
     }
 
-    public void setToxicResult(String toxicResult) {
-        this.toxicResult = toxicResult;
-    }
-
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -74,6 +72,15 @@ public class Feedback {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
     public String getDate() {
         return date;
     }
@@ -81,6 +88,10 @@ public class Feedback {
     public void setDate(String date) {
         this.date = date;
     }
+
+
+
+
 
 
 }

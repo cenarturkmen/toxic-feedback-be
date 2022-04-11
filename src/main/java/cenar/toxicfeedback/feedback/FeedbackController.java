@@ -1,5 +1,6 @@
 package cenar.toxicfeedback.feedback;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,14 +23,15 @@ public class FeedbackController {
         return "Service is up and running";
     }
 
-    @GetMapping("/feedbacks")
-    public List<Feedback> getFeedbacks() {
-        return feedbackService.getFeedbacks();
-    }
-
-    @PostMapping("/addFeedback")
-    public void addFeedback(@RequestBody Feedback feedback) {
+    @PostMapping(path = "/addFeedback")
+    public void addFeedback(@RequestBody Feedback feedback){
         feedbackService.addFeedback(feedback);
     }
+
+    @GetMapping(path = "/feedbacks")
+    public List<Feedback> getFeedbacks(){
+        return feedbackService.getAllFeedbacks();
+    }
+
 
 }
