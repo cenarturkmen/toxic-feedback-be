@@ -1,19 +1,14 @@
 package cenar.toxicfeedback.feedback;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table
+
+
+@Document("feedbacks")
 public class Feedback {
 
     @Id
-    @SequenceGenerator(
-            name = "feedback_seq",
-            sequenceName = "feedback_seq",
-            allocationSize = 1
-    )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "feedback_seq")
     private Long id;
     private String name;
     private String email;
